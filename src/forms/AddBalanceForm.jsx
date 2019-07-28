@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 
 const AddBalanceForm = (props) => {
 
-  const classes = useStyles();
+    const classes = useStyles();
 
     const todayDate = new Date().toISOString().slice(0,10)
     const initialFormState = {account:'',balance:0.0,date:todayDate}
@@ -40,16 +40,16 @@ const AddBalanceForm = (props) => {
             setBalance(initialFormState)
         }}
     >
-    <TextField
-      name="account"
-      label="account"
-      type="text"
-      onChange={handleInputChange} value={balance.account}
-      className={classes.textField}
-      InputLabelProps={{
-        shrink: true,
-      }}
-    />
+      <TextField
+        name="account"
+        label="account"
+        type="text"
+        onChange={handleInputChange} value={balance.account}
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
       <TextField
         name="balance"
         label="balance"

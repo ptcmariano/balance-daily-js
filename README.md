@@ -1,6 +1,6 @@
 # balance-daily
 
-> project react typescript pwa to balance daily
+> project react pwa to balance daily
 
 ## Available Scripts
 
