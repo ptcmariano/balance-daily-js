@@ -1,6 +1,25 @@
 import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+//styles
+const useStyles = makeStyles(theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200,
+  },
+}));
 
 const AddBalanceForm = (props) => {
+
+  const classes = useStyles();
+
     const todayDate = new Date().toISOString().slice(0,10)
     const initialFormState = {account:'',balance:0.0,date:todayDate}
     const [balance,setBalance] = useState(initialFormState)
@@ -12,6 +31,7 @@ const AddBalanceForm = (props) => {
     }
     return (
     <form
+        className={classes.container}
         onSubmit={event => {
             event.preventDefault()
             if (!balance.account || !balance.balance || !balance.date) return
@@ -20,13 +40,39 @@ const AddBalanceForm = (props) => {
             setBalance(initialFormState)
         }}
     >
-      <label>account</label>
-      <input type="text" name="account" onChange={handleInputChange} value={balance.account} />
-      <label>balance</label>
-      <input type="number" name="balance" onChange={handleInputChange} value={balance.balance} />
-      <label>date</label>
-      <input type="date" name="date" onChange={handleInputChange} value={balance.date} />
-      <button>Add new Balance</button>
+    <TextField
+      name="account"
+      label="account"
+      type="text"
+      onChange={handleInputChange} value={balance.account}
+      className={classes.textField}
+      InputLabelProps={{
+        shrink: true,
+      }}
+    />
+      <TextField
+        name="balance"
+        label="balance"
+        type="number"
+        onChange={handleInputChange} value={balance.balance}
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+      <TextField
+        name="date"
+        label="date"
+        type="date"
+        onChange={handleInputChange} value={balance.date}
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+      <Button variant="contained" color="primary" type="submit">
+      Add new Balance
+      </Button>
     </form>
   )
 }

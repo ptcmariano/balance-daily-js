@@ -3,7 +3,6 @@ import './App.css';
 import BalanceTable from './tables/BalanceTable'
 import AddBalanceForm from './forms/AddBalanceForm'
 
-
 function App() {
   const balanceData = []
 
