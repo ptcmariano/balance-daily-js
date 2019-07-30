@@ -1,4 +1,5 @@
 import React from 'react'
+import TextField from '@material-ui/core/TextField'
 
 const BalanceTable = (props) => (
   <table className="TableCenter">
@@ -15,7 +16,18 @@ const BalanceTable = (props) => (
                 <tr key={balance.account}>
                     <td>{balance.account}</td>
                     <td>{balance.balance}</td>
-                    <td>{balance.date}</td>
+                    <td>
+                      <TextField
+                        name="date"
+                        label="date"
+                        type="date"
+                        disabled
+                        value={balance.date}
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                      />
+                    </td>
                 </tr>
             ))
         ):(
